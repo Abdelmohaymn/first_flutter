@@ -1,8 +1,8 @@
 
-import 'package:first_flutter/layout/shop_app/shop_layout/cubit/shop_cubit.dart';
-import 'package:first_flutter/layout/shop_app/shop_layout/shop_layout.dart';
-import 'package:first_flutter/modules/shop_app/login/shop_login.dart';
+import 'package:firebase_core/firebase_core.dart';
+import 'package:first_flutter/layout/social_app/social_layout.dart';
 import 'package:first_flutter/modules/shop_app/onboarding/onboarding.dart';
+import 'package:first_flutter/modules/social_app/login/social_login.dart';
 import 'package:first_flutter/shared/block_observer.dart';
 import 'package:first_flutter/shared/components/constants.dart';
 import 'package:first_flutter/shared/cubit/cubit.dart';
@@ -13,6 +13,7 @@ import 'package:first_flutter/styles/themes.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'dart:io';
+import 'firebase_options.dart';
 
 
 //for handshake error
@@ -30,20 +31,24 @@ void main() async{
 
   HttpOverrides.global = MyHttpOverrides();
 
+  await Firebase.initializeApp(
+    options: DefaultFirebaseOptions.currentPlatform,
+  );
+
   Bloc.observer = MyBlocObserver();
   DioHelper.init();
   await SharedPrefHelper.init();
 
-  Widget widget = OnboardingScreen();
+  Widget startSocial = const OnboardingScreen();
   bool onBoarding = SharedPrefHelper.getData(key: 'onBoarding')??true;
   bool isDark = SharedPrefHelper.getData(key: 'isDark')??false;
-  token = SharedPrefHelper.getData(key: 'token');
-
+  /*token = SharedPrefHelper.getData(key: 'token');*/
+  uId = SharedPrefHelper.getData(key: 'uId');
   if(!onBoarding){
-    widget = (token!=null)?ShopHomeScreen():ShopLoginScreen();
+    startSocial = (uId!=null)?SocialLayout():SocialLoginScreen();
   }
 
-  runApp(MyApp(startScreen:widget,isDark:isDark));
+  runApp(MyApp(startScreen:startSocial,isDark:isDark));
 }
 
 class MyApp extends StatelessWidget {

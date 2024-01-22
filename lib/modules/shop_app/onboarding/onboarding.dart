@@ -1,5 +1,6 @@
 
 import 'package:first_flutter/modules/shop_app/login/shop_login.dart';
+import 'package:first_flutter/modules/social_app/login/social_login.dart';
 import 'package:first_flutter/shared/components/components.dart';
 import 'package:first_flutter/shared/network/local/shared_pref_helper.dart';
 import 'package:first_flutter/styles/colors.dart';
@@ -29,18 +30,18 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
   List<BoardingModel> list = [
     BoardingModel(
         image: 'assets/images/onboarding_1.jpg',
-        title: 'Onboarding title 1',
-        body: 'Onboarding body 1'
+        title: 'Get in touch with the world',
+        body: ''
     ),
     BoardingModel(
-        image: 'assets/images/female.png',
-        title: 'Onboarding title 2',
-        body: 'Onboarding body 2'
+        image: 'assets/images/onboarding_2.jpg',
+        title: 'Chat with your friends',
+        body: ''
     ),
     BoardingModel(
-        image: 'assets/images/male.png',
-        title: 'Onboarding title 3',
-        body: 'Onboarding body 3'
+        image: 'assets/images/onboarding_3.jpg',
+        title: 'Talk to your family',
+        body: ''
     ),
   ];
 
@@ -125,7 +126,7 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
 
   void finishOnBoarding(){
     SharedPrefHelper.saveData(key: 'onBoarding', value: false).then((value) => {
-      NavigateWithoutBack(context, ShopLoginScreen())
+      NavigateWithoutBack(context, SocialLoginScreen())
     });
   }
 
@@ -140,19 +141,17 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
           ),
           Text(
             model.title,
-            style: TextStyle(
-              fontSize: 24.0,
+            style: const TextStyle(
+              fontSize: 20.0,
               fontWeight: FontWeight.bold,
-              color: Theme.of(context).colorScheme.surface
             ),
           ),
           const SizedBox(height: 15,),
           Text(
             model.body,
-            style: TextStyle(
+            style: const TextStyle(
                 fontSize: 14.0,
                 fontWeight: FontWeight.bold,
-                color: Theme.of(context).colorScheme.surface
             ),
           ),
           const SizedBox(height: 30,),

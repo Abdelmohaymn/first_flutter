@@ -49,6 +49,18 @@ dependencies:
   fluttertoast: ^8.2.4
   carousel_slider: ^4.2.1
   debounce_throttle: ^2.0.0
+  image_picker: ^1.0.5
+  modal_bottom_sheet: ^2.1.2
+  blurhash: ^1.1.1
+  flutter_blurhash: ^0.8.2
+
+
+  #firebase
+  firebase_core: ^2.24.2
+  firebase_auth: ^4.15.3
+  cloud_firestore: ^4.13.6
+  firebase_storage: ^11.5.6
+  firebase_messaging: ^14.7.10
 
 
 dev_dependencies:
@@ -79,6 +91,9 @@ flutter:
     - family: Janna
       fonts:
         - asset: assets/fonts/janna.ttf
+    - family: IconBroken
+      fonts:
+        - asset: assets/fonts/icons.ttf
 
   # To add assets to your application, add an assets section, like this:
   # assets:

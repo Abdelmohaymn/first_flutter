@@ -6,18 +6,10 @@ import 'package:hexcolor/hexcolor.dart';
 
 ThemeData darkTheme = ThemeData(
   scaffoldBackgroundColor: HexColor('333739'),
-  colorScheme: const ColorScheme(
-      brightness: Brightness.light,
-      primary: defaultColor,
-      onPrimary: defaultColor,
-      secondary: defaultColor,
-      onSecondary: defaultColor,
-      error: Colors.red,
-      onError: Colors.red,
-      background: defaultColor,
-      onBackground: Colors.white,
-      surface: Colors.white,
-      onSurface: Colors.white
+  colorScheme: ColorScheme.fromSeed(
+      seedColor: defaultColor
+  ).copyWith(
+      primary: defaultColor
   ),
   appBarTheme: AppBarTheme(
     surfaceTintColor: HexColor('333739'),
@@ -57,18 +49,12 @@ ThemeData darkTheme = ThemeData(
 
 ThemeData lightTheme = ThemeData(
   scaffoldBackgroundColor: Colors.white,
-  colorScheme: const ColorScheme(
-      brightness: Brightness.light,
-      primary: defaultColor,
-      onPrimary: defaultColor,
-      secondary: defaultColor,
-      onSecondary: defaultColor,
-      error: defaultColor,
-      onError: defaultColor,
-      background: Colors.grey,
-      onBackground: Colors.grey,
-      surface: Colors.black,
-      onSurface: Colors.white
+  colorScheme: ColorScheme.fromSeed(
+    seedColor: defaultColor,
+    brightness: Brightness.light
+  ).copyWith(
+    primary: defaultColor,
+    secondary: defaultColor
   ),
   appBarTheme: const AppBarTheme(
     surfaceTintColor: Colors.white,
@@ -101,7 +87,7 @@ ThemeData lightTheme = ThemeData(
             fontWeight: FontWeight.w600,
             fontSize: 18,
             color: Colors.black
-        )
+        ),
     ),
   fontFamily: 'Janna',
 );

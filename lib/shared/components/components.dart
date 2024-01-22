@@ -5,6 +5,7 @@ import 'package:first_flutter/shared/cubit/cubit.dart';
 import 'package:first_flutter/shared/news_cubit/news_cubit.dart';
 import 'package:first_flutter/shared/news_cubit/news_states.dart';
 import 'package:first_flutter/styles/colors.dart';
+import 'package:first_flutter/styles/icon_broken.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:fluttertoast/fluttertoast.dart';
@@ -15,7 +16,7 @@ Widget DefaultTextField({
     required TextInputType type,
     required String label,
     required IconData prefix,
-    required String? Function(String?) validate,
+    String? Function(String?)? validate,
     Function(String)? onSubmit,
     Function(String)? onChange,
     Function()? onTap,
@@ -31,20 +32,22 @@ Widget DefaultTextField({
       onChanged: onChange,
       onTap: onTap,
       validator: validate,
+      style: const TextStyle(fontSize: 13),
       decoration: InputDecoration(
         labelText: label,
-        labelStyle: TextStyle(
-          color: iconsColor
+        labelStyle: const TextStyle(
+          //color: iconsColor,
+          fontSize: 13
         ),
         prefixIcon: Icon(
           prefix,
-          color:iconsColor ,
+          //color:iconsColor ,
         ),
         suffixIcon: suffix != null?IconButton(
             onPressed: suffixPressed,
             icon: Icon(
               suffix,
-              color: iconsColor,
+              //color: iconsColor,
             ),
         ):null,
         border: const OutlineInputBorder(),
@@ -80,13 +83,13 @@ Widget defaultButton({
 );
 
 Widget defaultTextButton({
-  required Function() onClick,
+  required Function()? onClick,
   required String text
 }) => TextButton(
   onPressed: onClick,
   child: Text(
     text.toUpperCase()
-  )
+  ),
 );
 
 
@@ -239,7 +242,7 @@ void defaultToast({
         timeInSecForIosWeb: 5,
         backgroundColor: chooseToastColor(state),
         textColor: Colors.white,
-        fontSize: 16.0
+        fontSize: 14.0
       );
 
 enum ToastStates{SUCCESS,ERROR,WARNING,}
@@ -265,3 +268,19 @@ BottomNavigationBarItem defaultBottomNavItem(String text,IconData icon) =>
         icon: Icon(icon),
         label: text
     );
+
+AppBar defaultAppBar({
+  required BuildContext context,
+  required String title,
+  required void Function()  onBack,
+  List<Widget>? actions
+}) => AppBar(
+  title: Text(title),
+  leading: IconButton(
+    onPressed: onBack,
+    icon: const Icon(IconBroken.Arrow___Left_2),
+  ),
+  actions: actions,
+  titleSpacing: 0,
+
+);
