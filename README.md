@@ -13,7 +13,7 @@ Used tools:
  - Shared prefrences : to store simple data.
  - blur hash: this used to generate hash value for images so when the images is still loading it shows a blur image for it.
 
-#Here are some screenshots of the app
+##Here are some screenshots of the app
 
 <img src="screen_shots/1.png">
 <img src="screen_shots/2.png" >
