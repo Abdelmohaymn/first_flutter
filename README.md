@@ -1,16 +1,16 @@
 # first_flutter
 
-A new Flutter project.
+This is my first fluter project, i was practicing flutter throw a udemy course and some projects.
+one of the these projects is simple social app whaich i developed without the course, i just used the UI from the course.
+## Social app
 
-## Getting Started
+It's a social app that has features like : 
+ - add posts, comments, chattings
 
-This project is a starting point for a Flutter application.
+Used tools: 
+ - Firebase : to sotre the data of users and their images in additon to using the realtime database for the chats.
+ - Bloc : for state mangement
+ - Shared prefrences : to store simple data.
+ - blur hash: this used to generate hash value for images so when the images is still loading it shows a blur image for it.
 
-A few resources to get you started if this is your first Flutter project:
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
