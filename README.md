@@ -1,7 +1,7 @@
 # first_flutter
 
 This is my first fluter project, i was practicing flutter throw a udemy course and some projects.
-one of the these projects is simple social app whaich i developed without the course, i just used the UI from the course.
+one of the these projects is simple social app whaich i developed without the course, i just used the UI from the course and added some features.
 ## Social app
 
 It's a social app that has features like : 
